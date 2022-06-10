@@ -115,6 +115,47 @@
   }
 }
 
-.label {
-  padding: 1.5rem;
+.wrapper {
+  list-style-type: none;
+  padding: 0;
+  border-radius: 3px;
+}
+.formrow {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+  flex-grow: 1;
+}
+.formrow > label {
+  padding: .5em 1em .5em 0;
+  flex: 1;
+  flex-grow: 4;
+}
+.formrow > input {
+  flex: 2;
+}
+
+.formrow > input,
+.formrow > button {
+  padding: .5em;
+}
+.formrow > button {
+  background: gray;
+  color: white;
+  border: 0;
+}
+@media screen and (min-width: 768px) {
+  .formrow > input {
+    flex: 3; 
+  }
+}
+@media screen and (min-width: 992px) {
+  .formrow > input {
+    flex: 4; 
+  }
+}
+@media screen and (min-width: 1200px) {
+  .formrow > input {
+    flex: 5; 
+  }
 }
