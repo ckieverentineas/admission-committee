@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from '/styles/Home.module.css'
 export default function Registrator() {
-    function handleSubmit(e) {
+    function handleSubmit(e: any) {
         e.preventDefault()
         const {
             citizenship, passport, passport_seria,
@@ -76,7 +76,19 @@ export default function Registrator() {
             sport_level: sport_level.value,
             success: success.value
         }
-        console.log(data)
+        //console.log(data)
+        Register_User(data);
+    }
+    async function Register_User(data: any) {
+        const res = await fetch('/api/abbitur', {
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        })
+        const result = await res.json()
+        console.log(result)
     }
     return (
         <div className={styles.card}>
