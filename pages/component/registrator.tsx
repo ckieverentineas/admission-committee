@@ -1,35 +1,88 @@
 import { useState } from 'react'
 import styles from '/styles/Home.module.css'
-export default function Auth() {
-    const [lvl, setLvl] = useState('');
-    const [gold, setGold] = useState('');
-    const [xp, setXp] = useState('');
-    async function Get_Account() {
-        const res = await fetch('/api/account', {
-            body: JSON.stringify({
-                token: localStorage['session']
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST'
-        })
-        const result = await res.json()
-        setLvl(result['lvl'])
-        setXp(result['xp'])
-        setGold(result['gold'])
-        if (Object.keys(result).length > 1444) {
-            localStorage.removeItem('session')
-            localStorage.setItem('session', `${result['token']}`)
-            document.location.href = await "/profile"
+export default function Registrator() {
+    function handleSubmit(e) {
+        e.preventDefault()
+        const {
+            citizenship, passport, passport_seria,
+            passport_number, passport_place, passport_date,
+            firstname, name, lastname,
+            birthday, birthday_place, phone,
+            gender, adress_register, adress_fact,
+            email, language, specialization_first,
+            specialization_second, form_education, form_education_pay,
+            education_complete_name, education_complete_year, education_complete_category,
+            education_complete_document, education_complete_seria, education_complete_number,
+            education_complete_date, education_complete_type, medal,
+            olympiad, work_stage_year, work_stage_month,
+            work_place_post, house, snils,
+            inn, education_spo, parent_mother_initial,
+            parent_mother_work, parent_mother_work_post, parent_mother_phone,
+            parent_father_initial, parent_father_work, parent_father_work_post,
+            parent_father_phone, hobby, army,
+            sport, sport_level, success
+            
+        } = e.target.elements
+        const data = {
+            citizenship: citizenship.value, 
+            passport: passport.value,
+            passport_seria: passport_seria.value,
+            passport_number: passport_number.value,
+            passport_place: passport_place.value,
+            passport_date: passport_date.value,
+            firstname: firstname.value,
+            name: name.value,
+            lastname: lastname.value,
+            birthday: birthday.value,
+            birthday_place: birthday_place.value,
+            phone: phone.value,
+            gender: gender.value,
+            adress_register: adress_register.value,
+            adress_fact: adress_fact.value,
+            email: email.value,
+            language: language.value,
+            specialization_first: specialization_first.value,
+            specialization_second: specialization_second.value,
+            form_education: form_education.value,
+            form_education_pay: form_education_pay.value,
+            education_complete_name: education_complete_name.value,
+            education_complete_year: education_complete_year.value,
+            education_complete_category: education_complete_category.value,
+            education_complete_document: education_complete_document.value,
+            education_complete_seria: education_complete_seria.value,
+            education_complete_number: education_complete_number.value,
+            education_complete_date: education_complete_date.value,
+            education_complete_type: education_complete_type.value,
+            medal: medal.value,
+            olympiad: olympiad.value,
+            work_stage_year: work_stage_year.value,
+            work_stage_month: work_stage_month.value,
+            work_place_post: work_place_post.value,
+            house: house.value,
+            snils: snils.value,
+            inn: inn.value,
+            education_spo: education_spo.value,
+            parent_mother_initial: parent_mother_initial.value,
+            parent_mother_work: parent_mother_work.value,
+            parent_mother_work_post: parent_mother_work_post.value,
+            parent_mother_phone: parent_mother_phone.value,
+            parent_father_initial: parent_father_initial.value,
+            parent_father_work: parent_father_work.value,
+            parent_father_work_post: parent_father_work_post.value,
+            parent_father_phone: parent_father_phone.value,
+            hobby: hobby.value,
+            army: army.value,
+            sport: sport.value,
+            sport_level: sport_level.value,
+            success: success.value
         }
-        console.log(result)
+        console.log(data)
     }
     return (
         <div className={styles.card}>
             <h1 className={styles.title}>Создание заявления</h1>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <ul className={styles.wrapper}>
                     <h2>Паспортные данные:</h2>
                     <li className={styles.formrow}>
@@ -79,7 +132,7 @@ export default function Auth() {
                         <label className={styles.label}>Место Рождения:</label> 
                         <input type="text" name="birthday_place" placeholder="Г. ХАБАРОВСК" autoComplete="off"/>
                         <label className={styles.label}>Номер телефона:</label> 
-                        <input type="tel" name="number" maxLength={12} placeholder="88005557766" autoComplete="off"/>
+                        <input type="tel" name="phone" maxLength={12} placeholder="88005557766" autoComplete="off"/>
                     </li>
                     <fieldset>
                         <legend>Выберите пол:</legend>
@@ -191,7 +244,7 @@ export default function Auth() {
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Место работы, занимаемая должность для заочников:</label> 
-                        <input type="text" name="category" placeholder="МЕСТО РАБОТЫ, ЗАНИМАЕМАЯ ДОЛЖНОСТЬ ДЛЯ ЗАОЧНИКОВ" autoComplete="off"/>
+                        <input type="text" name="work_place_post" placeholder="МЕСТО РАБОТЫ, ЗАНИМАЕМАЯ ДОЛЖНОСТЬ ДЛЯ ЗАОЧНИКОВ" autoComplete="off"/>
                     </li>
                     <fieldset>
                         <legend>В общежитии:</legend>

@@ -12,16 +12,55 @@ datasource db {
 
 model Passport {
   id       Int       @id @default(autoincrement())
-  name  String
+  citizenship String
+  passport String
+  passport_seria Int
+  passport_number Int
+  passport_place String
+  passport_date DateTime
   firstname String
-  lastname  String
-  gender  String
-  birthday  DateTime
-  born  String
-  pas_ser Int
-  pas_num Int
-  pas_get String
-  pas_date  DateTime
+  name String
+  lastname String
+  birthday Int
+  birthday_place String
+  phone Int
+  gender String
+  adress_register String
+  adress_fact String
+  email String
+  language String
+  specialization_first String
+  specialization_second String
+  form_education String
+  form_education_pay String
+  education_complete_name String
+  education_complete_year Int
+  education_complete_category String
+  education_complete_document String
+  education_complete_seria Int
+  education_complete_number Int
+  education_complete_date DateTime
+  education_complete_type String
+  medal String
+  olympiad String
+  work_stage_year Int
+  work_stage_month Int
+  work_place_post String
+  house String
   snils Int
   inn Int
+  education_spo String
+  parent_mother_initial String
+  parent_mother_work String
+  parent_mother_work_post String
+  parent_mother_phone Int
+  parent_father_initial String
+  parent_father_work String
+  parent_father_work_post String
+  parent_father_phone Int
+  hobby String
+  army String
+  sport String
+  sport_level String
+  success String
 }
