@@ -89,6 +89,12 @@ export default function Registrator() {
         })
         const result = await res.json()
         console.log(result)
+        if (result) {
+            alert("Успешно подана заявка")
+            document.location.href= await "/"
+        } else {
+            alert("Неуспешно" + result)
+        }
     }
     return (
         <div className={styles.card}>

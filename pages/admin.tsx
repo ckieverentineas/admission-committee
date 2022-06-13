@@ -11,6 +11,9 @@ const Admin: NextPage = () => {
         await setMethodEducation(e.target.value);
         await console.log(methodEducation)
     }
+    async function Admin() {
+        document.location.href= await "/"
+    }
     return (
         <div className={styles.container}>
         <Head>
@@ -19,7 +22,7 @@ const Admin: NextPage = () => {
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className={styles.main}>
+        <main>
             <h1 className={styles.title}>
             Личный кабинет администратора
             </h1>
@@ -31,7 +34,7 @@ const Admin: NextPage = () => {
         </main>
 
         <footer className={styles.footer}>
-            Приемная комиссия КГБ ПОУ ХКОТСО
+        <div className={styles.code} onClick={Admin}>Приемная комиссия КГБ ПОУ ХКОТСО 2022</div>
         </footer>
         </div>
     )
