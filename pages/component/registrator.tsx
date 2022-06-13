@@ -105,11 +105,11 @@ export default function Registrator() {
                     <h2>Паспортные данные:</h2>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Гражданство:</label> 
-                        <input type="text" name="citizenship" placeholder="РОССИЙСКАЯ ФЕДЕРАЦИЯ" autoComplete="off"/>
+                        <input type="text" name="citizenship" placeholder="РОССИЙСКАЯ ФЕДЕРАЦИЯ" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Документ, удостоверяющий личность:</label> 
-                        <input type="text" list="list" name="passport" autoComplete="off"/>
+                        <input type="text" list="list" name="passport" autoComplete="off" required/>
                         <datalist id='list'>
                             <option value='ПАСПОРТ РФ'>паспорт Российской Федерации</option>
                             <option value='ЗАГРАНИЧНЫЙ ПАСПОРТ'>паспорт для граждан Российской Федерации, выежающих за пределы страны</option>
@@ -122,46 +122,46 @@ export default function Registrator() {
                     <hr/>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Серия:</label> 
-                        <input type="number" name="passport_seria" max="9999" placeholder="0000" autoComplete="off"/>
+                        <input type="number" name="passport_seria" max="9999" placeholder="0000" autoComplete="off" required/>
                         <label className={styles.label}>Номер:</label> 
-                        <input type="number" name="passport_number" max="999999" placeholder="000000" autoComplete="off"/>
+                        <input type="number" name="passport_number" max="999999" placeholder="000000" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Кем выдан:</label> 
-                        <input type="text" name="passport_place" placeholder="УМВД РОССИИ ПО ХАБАРОВСКОМУ КРАЮ" autoComplete="off"/>
+                        <input type="text" name="passport_place" placeholder="УМВД РОССИИ ПО ХАБАРОВСКОМУ КРАЮ" autoComplete="off" required/>
                         <label className={styles.label}>Дата выдачи:</label> 
-                        <input type="date" name="passport_date" autoComplete="off"/>
+                        <input type="date" name="passport_date" autoComplete="off" required/>
                     </li>
                     <hr/>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Фамилия:</label> 
-                        <input type="text" name="firstname" placeholder="ИВАНОВ" autoComplete="off"/>
+                        <input type="text" name="firstname" placeholder="ИВАНОВ" autoComplete="off" required/>
                         <label className={styles.label}>Имя:</label> 
-                        <input type="text" name="name" placeholder="ДМИТРИЙ" autoComplete="off"/>
+                        <input type="text" name="name" placeholder="ДМИТРИЙ" autoComplete="off" required/>
                         
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Отчество:</label> 
-                        <input type="text" name="lastname" placeholder="ИВАНОВИЧ" autoComplete="off"/>
+                        <input type="text" name="lastname" placeholder="ИВАНОВИЧ" autoComplete="off" required/>
                         <label className={styles.label}>Дата рождения:</label> 
-                        <input type="date" name="birthday" autoComplete="off"/>
+                        <input type="date" name="birthday" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Место Рождения:</label> 
-                        <input type="text" name="birthday_place" placeholder="Г. ХАБАРОВСК" autoComplete="off"/>
+                        <input type="text" name="birthday_place" placeholder="Г. ХАБАРОВСК" autoComplete="off" required/>
                         <label className={styles.label}>Номер телефона:</label> 
                         <input type="tel" name="phone" maxLength={12} placeholder="88005557766" autoComplete="off"/>
                     </li>
                     <fieldset>
                         <legend>Выберите пол:</legend>
-                        <input type="radio" name="gender" value="МУЖСКОЙ"/>
+                        <input type="radio" name="gender" value="МУЖСКОЙ" required/>
                         <label>Мужской</label>
                         <input type="radio" name="gender" value="ЖЕНСКИЙ"/>
                         <label>Женский</label>
                     </fieldset>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Адрес регистрации места жительства:</label> 
-                        <input type="text" name="adress_register" placeholder="ИНДЕКС, ПОЛНЫЙ АДРЕС ПОСТОЯННОЙ РЕГИСТРАЦИИ, РАЙОН" autoComplete="off"/>
+                        <input type="text" name="adress_register" placeholder="ИНДЕКС, ПОЛНЫЙ АДРЕС ПОСТОЯННОЙ РЕГИСТРАЦИИ, РАЙОН" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Фактический адрес места жительства:</label> 
@@ -177,9 +177,9 @@ export default function Registrator() {
                     <h2>Выбор специальности:</h2>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Специальность:</label> 
-                        <input type="text" list="specialization" name="specialization_first" autoComplete="off"/>
+                        <input type="text" list="specialization" name="specialization_first" autoComplete="off" required/>
                         <label className={styles.label}>Запасная специальность:</label> 
-                        <input type="text" list="specialization" name="specialization_second" autoComplete="off"/>
+                        <input type="text" list="specialization" name="specialization_second" autoComplete="off" required/>
                         <datalist id='specialization'>
                             <option value='КС'>Компьютерные системы и комплексы</option>
                             <option value='ИС'>Информационные системы и программирование</option>
@@ -187,14 +187,14 @@ export default function Registrator() {
                     </li>
                     <fieldset>
                         <legend>Форма обучения:</legend>
-                        <input type="radio" name="form_education" value="ОЧНАЯ"/>
+                        <input type="radio" name="form_education" value="ОЧНАЯ" required/>
                         <label>ОЧНАЯ</label>
                         <input type="radio" name="form_education" value="ЗАОЧНАЯ"/>
                         <label>ЗАОЧНАЯ</label>
                     </fieldset>
                     <fieldset>
                         <legend>Место:</legend>
-                        <input type="radio" name="form_education_pay" value="БЮДЖЕТ"/>
+                        <input type="radio" name="form_education_pay" value="БЮДЖЕТ" required/>
                         <label>За счет ассингнованных средств краевого бюджета</label>
                         <input type="radio" name="form_education_pay" value="ДОГОВОР"/>
                         <label>Договор с оплатой стоимости обучения</label>
@@ -202,13 +202,13 @@ export default function Registrator() {
                     <h2>Информация об образовательном учреждении:</h2>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Образовательное учреждение:</label> 
-                        <input type="text" name="education_complete_name" placeholder="НАИМЕНОВАНИЕ УЧЕБНОГО ЗАВЕДЕНИЯ, ЧТО ЗАКОНЧИЛИ" autoComplete="off"/>
+                        <input type="text" name="education_complete_name" placeholder="НАИМЕНОВАНИЕ УЧЕБНОГО ЗАВЕДЕНИЯ, ЧТО ЗАКОНЧИЛИ" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Год окончания:</label> 
-                        <input type="number" min="1900" max="2099" name="education_complete_year" placeholder="2022" autoComplete="off"/>
+                        <input type="number" min="1900" max="2099" name="education_complete_year" placeholder="2022" autoComplete="off" required/>
                         <label className={styles.label}>Полученное образование:</label> 
-                        <input type="text" list="education_type" name="education_complete_category" autoComplete="off"/>
+                        <input type="text" list="education_type" name="education_complete_category" autoComplete="off" required/>
                         <datalist id='education_type'>
                             <option value='СРЕДНЕЕ ОБЩЕЕ'>11 КЛАССОВ</option>
                             <option value='ОСНОВНОЕ ОБЩЕЕ'>9 КЛАССОВ</option>
@@ -218,22 +218,22 @@ export default function Registrator() {
                     </li>
                     <fieldset>
                         <legend>Документ, подтверждающий полученное образование:</legend>
-                        <input type="radio" name="education_complete_document" value="АТТЕСТАТ"/>
+                        <input type="radio" name="education_complete_document" value="АТТЕСТАТ" required/>
                         <label>АТТЕСТАТ</label>
                         <input type="radio" name="education_complete_document" value="ДИПЛОМ"/>
                         <label>ДИПЛОМ</label>
                     </fieldset>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Серия:</label> 
-                        <input type="number" name="education_complete_seria" autoComplete="off"/>
+                        <input type="number" name="education_complete_seria" autoComplete="off" required/>
                         <label className={styles.label}>Номер:</label> 
-                        <input type="number" name="education_complete_number" autoComplete="off"/>
+                        <input type="number" name="education_complete_number" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Дата выдачи:</label> 
-                        <input type="date" name="education_complete_date" autoComplete="off"/>
+                        <input type="date" name="education_complete_date" autoComplete="off" required/>
                         <label className={styles.label}>Поданный документ:</label> 
-                        <input type="text" list="education_document_type" name="education_complete_type" autoComplete="off"/>
+                        <input type="text" list="education_document_type" name="education_complete_type" required autoComplete="off" required/>
                         <datalist id='education_document_type'>
                             <option value='ОРИГИНАЛ'>ОРИГИНАЛ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
                             <option value='КОПИЯ'>КСЕРОКОПИЯ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
@@ -241,14 +241,14 @@ export default function Registrator() {
                     </li>
                     <fieldset>
                         <legend>Медаль:</legend>
-                        <input type="radio" name="medal" value="МЕДАЛЬ ЕСТЬ"/>
+                        <input type="radio" name="medal" value="МЕДАЛЬ ЕСТЬ" required/>
                         <label>ЕСТЬ</label>
                         <input type="radio" name="medal" value="МЕДАЛИ НЕТ"/>
                         <label>НЕТ</label>
                     </fieldset>
                     <fieldset>
                         <legend>Победы в олимпиадах:</legend>
-                        <input type="radio" name="olympiad" value="ПОБЕДИТЕЛЬ ОЛИМПИАД"/>
+                        <input type="radio" name="olympiad" value="ПОБЕДИТЕЛЬ ОЛИМПИАД" required/>
                         <label>ПОБЕДИТЕЛЬ ОЛИМПИАД</label>
                         <input type="radio" name="olympiad" value="ПОБЕДЫ В ОЛПИМПИАДАХ ОТСУТСТВУЮТ"/>
                         <label>ПОБЕДЫ В ОЛПИМПИАДАХ ОТСУТСТВУЮТ</label>
@@ -266,20 +266,20 @@ export default function Registrator() {
                     </li>
                     <fieldset>
                         <legend>В общежитии:</legend>
-                        <input type="radio" name="house" value="НУЖДАЮСЬ В ОБЩЕЖИТИИ"/>
+                        <input type="radio" name="house" value="НУЖДАЮСЬ В ОБЩЕЖИТИИ" required/>
                         <label>НУЖДАЮСЬ</label>
                         <input type="radio" name="house" value="НЕ НУЖДАЮСЬ В ОБЩЕЖИТИИ"/>
                         <label>НЕ НУЖДАЮСЬ</label>
                     </fieldset>
                     <li className={styles.formrow}>
                         <label className={styles.label}>СНИЛС:</label> 
-                        <input type="number" name="snils" max="99999999999" placeholder="00000000000" autoComplete="off"/>
+                        <input type="number" name="snils" max="99999999999" placeholder="00000000000" autoComplete="off" required/>
                         <label className={styles.label}>ИНН:</label> 
-                        <input type="number" name="inn" max="999999999999" placeholder="000000000000" autoComplete="off"/>
+                        <input type="number" name="inn" max="999999999999" placeholder="000000000000" autoComplete="off" required/>
                     </li>
                     <fieldset>
                         <legend>Среднее профессиональное образование (СПО) получаю:</legend>
-                        <input type="radio" name="education_spo" value="СПО ПОЛУЧАЮ ВПЕРВЫЕ"/>
+                        <input type="radio" name="education_spo" value="СПО ПОЛУЧАЮ ВПЕРВЫЕ" required/>
                         <label>ВПЕРВЫЕ</label>
                         <input type="radio" name="education_spo" value="СПО ПОЛУЧАЮ НЕ ВПЕРВЫЕ"/>
                         <label>НЕ ВПЕРВЫЕ</label>
@@ -331,7 +331,7 @@ export default function Registrator() {
                     </li>
                     <fieldset>
                         <legend>Согласие на обработку персональных данных:</legend>
-                        <input type="radio" name="success" value="СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ ДАЮ"/>
+                        <input type="radio" name="success" value="СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ ДАЮ" required/>
                         <label>ДАЮ</label>
                         <input type="radio" name="success" value="СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ НЕ ДАЮ"/>
                         <label>НЕ ДАЮ</label>

@@ -3,7 +3,7 @@ import Registrator from './registrator';
 import styles from '/styles/Home.module.css'
 export default function Abiturs() {
     const [dataman, setDataMan] = useState([])
-    const [data, setData] = useState([])
+    const [data, setData] = useState<any[]>([])
     const [show, setShow] = useState(true)
     
     async function componentDidMount() {
