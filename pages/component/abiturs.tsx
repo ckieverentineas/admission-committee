@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Registrator from './registrator';
 import styles from '/styles/Home.module.css'
 export default function Abiturs() {
     const [dataman, setDataMan] = useState([])
-    const [data, setData] = useState([])
+    const [data, setData] = useState<any[]>([])
     const [show, setShow] = useState(true)
     
     async function componentDidMount() {
@@ -26,6 +27,18 @@ export default function Abiturs() {
         console.log(datas)
         setData(datas)
     }
+    async function CreateDoc(id: any) {
+        // GET request using fetch with async/await
+        const response = await fetch('/api/docx', {
+            body: JSON.stringify({id: id}),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        })
+        const datas = await response.json();
+        console.log(datas)
+    }
     useEffect(() => {
         componentDidMount();
     }, []);
@@ -33,6 +46,10 @@ export default function Abiturs() {
         setShow(false)
         console.log("worked"+id)
         getAb(id)
+    }
+    async function Doca(id: any) {
+        console.log("worked"+id)
+        CreateDoc(id)
     }
     async function Back(id: any) {
         setShow(true)
@@ -58,6 +75,10 @@ export default function Abiturs() {
                                 <label>Общежитие: {key['house']} </label><hr/>
                             </div>
                             <button onClick={() => Select(key['id'])}>Подрбонее</button>
+                            <button onClick={() => CreateDoc(key['id'])}>Сформировать заявление</button>
+                            <a target="_blank" href={`./files/${key['id']}_${key['firstname']}_${key['name']}_${key['lastname']}.docx`} download>
+                                <Link href={`./files/${key['id']}_${key['firstname']}_${key['name']}_${key['lastname']}.docx`} target="_blank">
+                                <button>Открыть заявление</button></Link></a>
                         </div>
                     ))}
                     </div>
@@ -66,7 +87,7 @@ export default function Abiturs() {
         } else {
             return (
                 <div>
-                    <h2 className={styles.title}>Заявление аббитуриента {data['firstname']} {data.name} {data.lastname}:</h2>
+                    <h2 className={styles.title}>Заявление аббитуриента {data.firstname} {data.name} {data.lastname}:</h2>
                     <div className={styles.grid}>
                         <div className={styles.card}>
                             <h2>Паспорт:</h2>
