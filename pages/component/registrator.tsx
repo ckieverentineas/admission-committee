@@ -109,22 +109,21 @@ export default function Registrator() {
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Документ, удостоверяющий личность:</label> 
-                        <input type="text" list="list" name="passport" autoComplete="off" required/>
-                        <datalist id='list'>
+                        <select name="passport">
                             <option value='ПАСПОРТ РФ'>паспорт Российской Федерации</option>
                             <option value='ЗАГРАНИЧНЫЙ ПАСПОРТ'>паспорт для граждан Российской Федерации, выежающих за пределы страны</option>
                             <option value='ИННОСТРАНЫЙ ПАСПОРТ'>паспорт иного государства</option>
                             <option value='ВОЕННЫЙ БИЛЕТ'>удостоверение личности военнослужащего</option>
                             <option value='ВРЕМЕННОЕ УДОСТОВЕРЕНИЕ'>временное удостоверение граждан Российской Федерации</option>
                             <option value='СВИДЕТЕЛЬСТВО О РОЖДЕНИИ'>свидетельство о государственной регистрации</option>
-                        </datalist>
+                        </select>
                     </li>
                     <hr/>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Серия:</label> 
-                        <input type="number" name="passport_seria" max="9999" placeholder="0000" autoComplete="off" required/>
+                        <input type="text" name="passport_seria" maxLength={4} placeholder="0000" autoComplete="off" required/>
                         <label className={styles.label}>Номер:</label> 
-                        <input type="number" name="passport_number" max="999999" placeholder="000000" autoComplete="off" required/>
+                        <input type="text" name="passport_number" maxLength={6} placeholder="000000" autoComplete="off" required/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Кем выдан:</label> 
@@ -171,32 +170,71 @@ export default function Registrator() {
                         <label className={styles.label}>e-mail:</label> 
                         <input type="email" name="email" placeholder="MYEMAIL@MAIL.RU" autoComplete="off"/>
                         <label className={styles.label}>Изучаемый иностранный язык:</label> 
-                        <input type="text" name="language" placeholder="АНГЛИЙСКИЙ" autoComplete="off"/>
+                        <select name="language">
+                            <option value='АНГЛИЙСКИЙ'>АНГЛИЙСКИЙ ЯЗЫК</option>
+                            <option value='НЕМЕЦКИЙ'>НЕМЕЦКИЙЯЗЫК</option>
+                            <option value='ФРАНЦУЗСКИЙ'>ФРАНЦУЗСКИЙ ЯЗЫК</option>
+                            <option value='КОРЕЙСКИЙ'>КОРЕЙСКИЙ ЯЗЫК</option>
+                            <option value='КИТАЙСКИЙ'>КИТАЙСКИЙ ЯЗЫК</option>
+                            <option value='ЯПОНСКИЙ'>ЯПОНСКИЙ ЯЗЫК</option>
+                            <option value='ДРУГОЙ'>ДРУГОЙ ЯЗЫК</option>
+                            <option value='НИКАКОЙ'>НИКАКОЙ ЯЗЫК</option>
+                        </select>
                     </li>
                     <hr/>
                     <h2>Выбор специальности:</h2>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Специальность:</label> 
-                        <input type="text" list="specialization" name="specialization_first" autoComplete="off" required/>
+                        <select name="specialization_first">
+                            <option value='Компьютерные системы и комплексы'>Компьютерные системы и комплексы</option>
+                            <option value='Монтаж и эксплуатация оборудования и систем газоснабжения'>Монтаж и эксплуатация оборудования и систем газоснабжения</option>
+                            <option value='Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий'>Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий</option>
+                            <option value='Информационные системы и программирование'>Информационные системы и программирование</option>
+                            <option value='Почтовая связь'>Почтовая связь</option>
+                            <option value='Теплоснабжение и теплотехническое оборудование'>Теплоснабжение и теплотехническое оборудование</option>
+                            <option value='Технология аналитического контроля химических соединений'>Технология аналитического контроля химических соединений</option>
+                            <option value='Право и организация социального обеспечения'>Право и организация социального обеспечения</option>
+                            <option value='Экономика и бухгалтерский учет (по отраслям)'>Экономика и бухгалтерский учет (по отраслям)</option>
+                            <option value='Электромонтажник электрических сетей и электрооборудования'>Электромонтажник электрических сетей и электрооборудования</option>
+                            <option value='Электромонтер по техническому обслуживанию электростанций и сетей'>Электромонтер по техническому обслуживанию электростанций и сетей</option>
+                            <option value='Электромонтер по ремонту и обслуживанию электрооборудования (по отраслям)'>Электромонтер по ремонту и обслуживанию электрооборудования (по отраслям)</option>
+                            <option value='Оператор нефтепереработки'>Оператор нефтепереработки</option>
+                            <option value='Продавец, контролёр-кассир'>Продавец, контролёр-кассир</option>
+                            <option value='Мастер контрольно-измерительных приборов и автоматики'>Мастер контрольно-измерительных приборов и автоматики</option>
+                            <option value='Лаборант-эколог'>Лаборант-эколог</option>
+                        </select>
                         <label className={styles.label}>Запасная специальность:</label> 
-                        <input type="text" list="specialization" name="specialization_second" autoComplete="off" required/>
-                        <datalist id='specialization'>
-                            <option value='КС'>Компьютерные системы и комплексы</option>
-                            <option value='ИС'>Информационные системы и программирование</option>
-                        </datalist>
+                        <select name="specialization_second">
+                            <option value='Монтаж и эксплуатация оборудования и систем газоснабжения'>Монтаж и эксплуатация оборудования и систем газоснабжения</option>
+                            <option value='Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий'>Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий</option>
+                            <option value='Компьютерные системы и комплексы'>Компьютерные системы и комплексы</option>
+                            <option value='Информационные системы и программирование'>Информационные системы и программирование</option>
+                            <option value='Почтовая связь'>Почтовая связь</option>
+                            <option value='Теплоснабжение и теплотехническое оборудование'>Теплоснабжение и теплотехническое оборудование</option>
+                            <option value='Технология аналитического контроля химических соединений'>Технология аналитического контроля химических соединений</option>
+                            <option value='Право и организация социального обеспечения'>Право и организация социального обеспечения</option>
+                            <option value='Экономика и бухгалтерский учет (по отраслям)'>Экономика и бухгалтерский учет (по отраслям)</option>
+                            <option value='Электромонтажник электрических сетей и электрооборудования'>Электромонтажник электрических сетей и электрооборудования</option>
+                            <option value='Электромонтер по техническому обслуживанию электростанций и сетей'>Электромонтер по техническому обслуживанию электростанций и сетей</option>
+                            <option value='Электромонтер по ремонту и обслуживанию электрооборудования (по отраслям)'>Электромонтер по ремонту и обслуживанию электрооборудования (по отраслям)</option>
+                            <option value='Оператор нефтепереработки'>Оператор нефтепереработки</option>
+                            <option value='Продавец, контролёр-кассир'>Продавец, контролёр-кассир</option>
+                            <option value='Мастер контрольно-измерительных приборов и автоматики'>Мастер контрольно-измерительных приборов и автоматики</option>
+                            <option value='Лаборант-эколог'>Лаборант-эколог</option>
+                        </select>
                     </li>
                     <fieldset>
                         <legend>Форма обучения:</legend>
-                        <input type="radio" name="form_education" value="ОЧНАЯ" required/>
+                        <input type="radio" name="form_education" value="ОЧНОЙ" required/>
                         <label>ОЧНАЯ</label>
-                        <input type="radio" name="form_education" value="ЗАОЧНАЯ"/>
+                        <input type="radio" name="form_education" value="ЗАОЧНОЙ"/>
                         <label>ЗАОЧНАЯ</label>
                     </fieldset>
                     <fieldset>
                         <legend>Место:</legend>
-                        <input type="radio" name="form_education_pay" value="БЮДЖЕТ" required/>
+                        <input type="radio" name="form_education_pay" value="финансируемые из средств краевого бюджета" required/>
                         <label>За счет ассингнованных средств краевого бюджета</label>
-                        <input type="radio" name="form_education_pay" value="ДОГОВОР"/>
+                        <input type="radio" name="form_education_pay" value="по договорам с оплатой стоимости обучения"/>
                         <label>Договор с оплатой стоимости обучения</label>
                     </fieldset>
                     <h2>Информация об образовательном учреждении:</h2>
@@ -206,15 +244,14 @@ export default function Registrator() {
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Год окончания:</label> 
-                        <input type="number" min="1900" max="2099" name="education_complete_year" placeholder="2022" autoComplete="off" required/>
+                        <input type="number" min="1990" max="2099" name="education_complete_year" placeholder="2022" autoComplete="off" required/>
                         <label className={styles.label}>Полученное образование:</label> 
-                        <input type="text" list="education_type" name="education_complete_category" autoComplete="off" required/>
-                        <datalist id='education_type'>
-                            <option value='СРЕДНЕЕ ОБЩЕЕ'>11 КЛАССОВ</option>
-                            <option value='ОСНОВНОЕ ОБЩЕЕ'>9 КЛАССОВ</option>
-                            <option value='СРЕДНЕЕ ПРОФЕССИОНАЛЬНОЕ'>КОЛЛЕДЖ</option>
-                            <option value='НАЧАЛЬНОЕ ПРОФЕССИОНАЛЬНОЕ'>УЧИЛИЩЕ</option>
-                        </datalist>
+                        <select name="education_complete_category">
+                            <option value='СРЕДНЕЕ ОБЩЕЕ'>СРЕДНЕЕ ОБЩЕЕ - 11 КЛАССОВ</option>
+                            <option value='ОСНОВНОЕ ОБЩЕЕ'>ОСНОВНОЕ ОБЩЕЕ - 9 КЛАССОВ</option>
+                            <option value='СРЕДНЕЕ ПРОФЕССИОНАЛЬНОЕ'>СРЕДНЕЕ ПРОФЕССИОНАЛЬНОЕ - КОЛЛЕДЖ</option>
+                            <option value='НАЧАЛЬНОЕ ПРОФЕССИОНАЛЬНОЕ'>НАЧАЛЬНОЕ ПРОФЕССИОНАЛЬНОЕ - УЧИЛИЩЕ</option>
+                        </select>
                     </li>
                     <fieldset>
                         <legend>Документ, подтверждающий полученное образование:</legend>
@@ -233,22 +270,21 @@ export default function Registrator() {
                         <label className={styles.label}>Дата выдачи:</label> 
                         <input type="date" name="education_complete_date" autoComplete="off" required/>
                         <label className={styles.label}>Поданный документ:</label> 
-                        <input type="text" list="education_document_type" name="education_complete_type" autoComplete="off" required/>
-                        <datalist id='education_document_type'>
+                        <select name="education_complete_type">
                             <option value='ОРИГИНАЛ'>ОРИГИНАЛ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
                             <option value='КОПИЯ'>КСЕРОКОПИЯ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
-                        </datalist>
+                        </select>
                     </li>
                     <fieldset>
                         <legend>Медаль:</legend>
-                        <input type="radio" name="medal" value="МЕДАЛЬ ЕСТЬ" required/>
+                        <input type="radio" name="medal" value="Медаль (аттестат, диплом c «отличием»)" required/>
                         <label>ЕСТЬ</label>
                         <input type="radio" name="medal" value="МЕДАЛИ НЕТ"/>
                         <label>НЕТ</label>
                     </fieldset>
                     <fieldset>
                         <legend>Победы в олимпиадах:</legend>
-                        <input type="radio" name="olympiad" value="ПОБЕДИТЕЛЬ ОЛИМПИАД" required/>
+                        <input type="radio" name="olympiad" value="Победитель всероссийских (региональных) олимпиад (член сборной)" required/>
                         <label>ПОБЕДИТЕЛЬ ОЛИМПИАД</label>
                         <input type="radio" name="olympiad" value="ПОБЕДЫ В ОЛПИМПИАДАХ ОТСУТСТВУЮТ"/>
                         <label>ПОБЕДЫ В ОЛПИМПИАДАХ ОТСУТСТВУЮТ</label>
@@ -266,22 +302,22 @@ export default function Registrator() {
                     </li>
                     <fieldset>
                         <legend>В общежитии:</legend>
-                        <input type="radio" name="house" value="НУЖДАЮСЬ В ОБЩЕЖИТИИ" required/>
+                        <input type="radio" name="house" value="НУЖДАЮСЬ" required/>
                         <label>НУЖДАЮСЬ</label>
-                        <input type="radio" name="house" value="НЕ НУЖДАЮСЬ В ОБЩЕЖИТИИ"/>
+                        <input type="radio" name="house" value="НЕ НУЖДАЮСЬ"/>
                         <label>НЕ НУЖДАЮСЬ</label>
                     </fieldset>
                     <li className={styles.formrow}>
                         <label className={styles.label}>СНИЛС:</label> 
-                        <input type="number" name="snils" max="99999999999" placeholder="00000000000" autoComplete="off" required/>
+                        <input type="text" name="snils" maxLength={11} placeholder="00000000000" autoComplete="off" required/>
                         <label className={styles.label}>ИНН:</label> 
-                        <input type="number" name="inn" max="999999999999" placeholder="000000000000" autoComplete="off" required/>
+                        <input type="text" name="inn" maxLength={12} placeholder="000000000000" autoComplete="off" required/>
                     </li>
                     <fieldset>
                         <legend>Среднее профессиональное образование (СПО) получаю:</legend>
-                        <input type="radio" name="education_spo" value="СПО ПОЛУЧАЮ ВПЕРВЫЕ" required/>
+                        <input type="radio" name="education_spo" value="ВПЕРВЫЕ" required/>
                         <label>ВПЕРВЫЕ</label>
-                        <input type="radio" name="education_spo" value="СПО ПОЛУЧАЮ НЕ ВПЕРВЫЕ"/>
+                        <input type="radio" name="education_spo" value="НЕ ВПЕРВЫЕ"/>
                         <label>НЕ ВПЕРВЫЕ</label>
                     </fieldset>
 
@@ -317,6 +353,7 @@ export default function Registrator() {
                         <input type="tel" name="parent_father_phone" maxLength={12} placeholder="89343543526" autoComplete="off"/>
                     </li>
                     
+                    <h2>Дополнительная информация о себе:</h2>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Интересы, увлечения, хобби:</label> 
                         <input type="text" name="hobby" placeholder="ВАШИ ИНТЕРЕСЫ" autoComplete="off"/>
