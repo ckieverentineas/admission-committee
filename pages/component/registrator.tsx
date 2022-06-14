@@ -233,7 +233,7 @@ export default function Registrator() {
                         <label className={styles.label}>Дата выдачи:</label> 
                         <input type="date" name="education_complete_date" autoComplete="off" required/>
                         <label className={styles.label}>Поданный документ:</label> 
-                        <input type="text" list="education_document_type" name="education_complete_type" required autoComplete="off" required/>
+                        <input type="text" list="education_document_type" name="education_complete_type" autoComplete="off" required/>
                         <datalist id='education_document_type'>
                             <option value='ОРИГИНАЛ'>ОРИГИНАЛ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
                             <option value='КОПИЯ'>КСЕРОКОПИЯ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>

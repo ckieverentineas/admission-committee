@@ -66,7 +66,7 @@ export default function Abiturs() {
         } else {
             return (
                 <div>
-                    <h2 className={styles.title}>Заявление аббитуриента {data.firstname} {data.name} {data.lastname}:</h2>
+                    <h2 className={styles.title}>Заявление аббитуриента {data['firstname']} {data.name} {data.lastname}:</h2>
                     <div className={styles.grid}>
                         <div className={styles.card}>
                             <h2>Паспорт:</h2>
