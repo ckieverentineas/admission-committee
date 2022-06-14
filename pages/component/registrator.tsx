@@ -20,7 +20,7 @@ export default function Registrator() {
             parent_mother_work, parent_mother_work_post, parent_mother_phone,
             parent_father_initial, parent_father_work, parent_father_work_post,
             parent_father_phone, hobby, army,
-            sport, sport_level, success
+            sport, sport_level, success, tree, four, five
             
         } = e.target.elements
         const data = {
@@ -74,7 +74,10 @@ export default function Registrator() {
             army: army.value,
             sport: sport.value,
             sport_level: sport_level.value,
-            success: success.value
+            success: success.value,
+            tree: tree.value,
+            four: four.value,
+            five: five.value
         }
         //console.log(data)
         Register_User(data);
@@ -274,6 +277,14 @@ export default function Registrator() {
                             <option value='ОРИГИНАЛ'>ОРИГИНАЛ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
                             <option value='КОПИЯ'>КСЕРОКОПИЯ ДОКУМЕНТА ОБ ОБРАЗОВАНИИ</option>
                         </select>
+                    </li>
+                    <li className={styles.formrow}>
+                        <label className={styles.label}>Количество троек:</label> 
+                        <input type="text" name="tree" autoComplete="off" maxLength={2} placeholder="7" required/>
+                        <label className={styles.label}>Четверок:</label> 
+                        <input type="text" name="four" autoComplete="off" maxLength={2} placeholder="6" required/>
+                        <label className={styles.label}>Пятерок:</label> 
+                        <input type="text" name="five" autoComplete="off" maxLength={2} placeholder="8" required/>
                     </li>
                     <fieldset>
                         <legend>Медаль:</legend>

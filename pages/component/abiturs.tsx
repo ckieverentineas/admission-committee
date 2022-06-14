@@ -116,6 +116,10 @@ export default function Abiturs() {
                             <br/><label>Поданный документ:</label><input value={data.education_complete_type}></input>
                             <br/><label>Медаль:</label><input value={data.medal}></input>
                             <br/><label>Победы в олимпиадах:</label><input value={data.olympiad}></input>
+                            <br/><label>Количество троек:</label><input value={data.tree}></input>
+                            <br/><label>Количество четверок:</label><input value={data.four}></input>
+                            <br/><label>Количество пятерок:</label><input value={data.five}></input>
+                            <br/><label>Средняя оценка аттестата:</label><input value={(parseInt(data.tree)*3+parseInt(data.four)*4+parseInt(data.five)*5)/(parseInt(data.tree)+parseInt(data.four)+parseInt(data.five))}></input>
                         </div>
                         <div className={styles.card}>
                             <h2>Контакты:</h2>

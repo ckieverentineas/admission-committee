@@ -63,4 +63,7 @@ model Passport {
   sport String
   sport_level String
   success String
+  tree String @default("")
+  four String @default("")
+  five String @default("")
 }
