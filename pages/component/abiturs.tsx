@@ -62,9 +62,10 @@ export default function Abiturs() {
                 <div>
                     <h2 className={styles.title}>Поданные заявления аббитуриентов:</h2>
                     <div className={styles.grid}>
-                    {dataman.map((key) => (
+                    {dataman.slice().reverse().map((key) => (
                         <div className={styles.card}>
                             <div>
+                                <label>ID: {key['id']} </label>
                                 <label>ФИО: {key['firstname']} </label>
                                 <label> {key['name']} </label>
                                 <label> {key['lastname']} </label><hr/>
@@ -72,7 +73,8 @@ export default function Abiturs() {
                             <div>
                                 <label>Желаемая специальность: {key['specialization_first']} </label><br/>
                                 <label>Запасная специальность {key['specialization_second']} </label><br/>
-                                <label>Общежитие: {key['house']} </label><hr/>
+                                <label>Общежитие: {key['house']} </label>
+                                <br/><label>Средняя оценка аттестата: {((parseInt(key.tree)*3+parseInt(key.four)*4+parseInt(key.five)*5)/(parseInt(key.tree)+parseInt(key.four)+parseInt(key.five))).toFixed(2)}</label><hr/>
                             </div>
                             <button onClick={() => Select(key['id'])}>Подрбонее</button>
                             <button onClick={() => CreateDoc(key['id'])}>Сформировать заявление</button>

@@ -10,37 +10,33 @@ const prisma = new PrismaClient();
 export default async function handler(req: any, res: any) {
     if (req.method === 'GET') {
         let { specialization_first } = req.body
-        specialization_first = "Технология аналитического контроля химических соединений"
+        specialization_first = "КС"
         console.log(req.body)
-        const data = await prisma.passport.findFirst({
+        const data = await prisma.passport.findMany({
             where: {
                 specialization_first
             }}
         )
+        let i = await Object.keys(data).length;
+        console.log(i)
+        let sta = ''
+        for(let t=0; t<i; t++) {
+            sta += data[t]+', '
+        }
+        console.log(sta)
         const testing: any[] = [
             {
                 sheet: "Adults",
                 columns: [
-                    { label: "№ п/п", value: "1++" },
-                    { label: "ФИО абитуриента", value: (row: { firstname: any; name: any; lastname: any; }) => row.firstname + " " + row.name + " " + row.lastname},
-                    { label: "ср. балл", value: (row: { tree: string; four: string; five: string; }) => ((parseInt(row.tree)*3+parseInt(row.four)*4+parseInt(row.five)*5)/(parseInt(row.tree)+parseInt(row.four)+parseInt(row.five))).toFixed(2)},
+                    { label: "№ п/п", value: (rows) => i++ },
+                    { label: "ФИО абитуриента", value: (rows: { firstname: any; name: any; lastname: any; }) => rows.firstname + " " + rows.name + " " + rows.lastname},
+                    { label: "ср. балл", value: (rows: { tree: string; four: string; five: string; }) => ((parseInt(rows.tree)*3+parseInt(rows.four)*4+parseInt(rows.five)*5)/(parseInt(rows.tree)+parseInt(rows.four)+parseInt(rows.five))).toFixed(2)},
                     { label: "копия/оригинал", value: 'education_complete_type'}
                 ],
                 content: [
-                    data
+                    sta
                 ],
-                },
-                {
-                sheet: "Pets",
-                columns: [
-                    { label: "Name", value: "name" },
-                    { label: "Age", value: "age" },
-                ],
-                content: [
-                    { name: "Malteada", age: 4, more: { phone: "99999999" } },
-                    { name: "Picadillo", age: 1, more: { phone: "87654321" } },
-                ],
-            },
+            }
         ]
         const settings: any = {
             writeOptions: {
