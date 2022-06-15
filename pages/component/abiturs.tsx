@@ -119,7 +119,7 @@ export default function Abiturs() {
                             <br/><label>Количество троек:</label><input value={data.tree}></input>
                             <br/><label>Количество четверок:</label><input value={data.four}></input>
                             <br/><label>Количество пятерок:</label><input value={data.five}></input>
-                            <br/><label>Средняя оценка аттестата:</label><input value={(parseInt(data.tree)*3+parseInt(data.four)*4+parseInt(data.five)*5)/(parseInt(data.tree)+parseInt(data.four)+parseInt(data.five))}></input>
+                            <br/><label>Средняя оценка аттестата:</label><input value={((parseInt(data.tree)*3+parseInt(data.four)*4+parseInt(data.five)*5)/(parseInt(data.tree)+parseInt(data.four)+parseInt(data.five))).toFixed(2)}></input>
                         </div>
                         <div className={styles.card}>
                             <h2>Контакты:</h2>
