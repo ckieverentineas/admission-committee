@@ -219,7 +219,6 @@ export default function Abiturs() {
         console.log(result)
         if (result) {
             alert("Успешно отредактировано заявка")
-            document.location.href= await "/"
         } else {
             alert("Неуспешно отредактировано" + result)
         }

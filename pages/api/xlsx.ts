@@ -30,7 +30,6 @@ export default async function handler(req: any, res: any) {
         )
         let jsonArr = [];
         let counter = 1
-
         for (let i = 0; i < data.length; i++) {
             jsonArr.push({
                 id: counter++,
@@ -39,7 +38,18 @@ export default async function handler(req: any, res: any) {
                 doc: data[i].education_complete_type
             });
         }
-        const WorkSheet = xlsx.utils.json_to_sheet(jsonArr)
+        jsonArr.sort(function(a, b) {return parseInt(b.aver) - parseInt(a.aver)})
+        let complet = []
+        counter = 1
+        for (let i = 0; i < jsonArr.length; i++) {
+            complet.push({
+                id: counter++,
+                fio: jsonArr[i].fio,
+                aver: jsonArr[i].aver,
+                doc: jsonArr[i].doc
+            });
+        }
+        const WorkSheet = xlsx.utils.json_to_sheet(complet)
         const WorkBook = xlsx.utils.book_new()
         xlsx.utils.book_append_sheet(WorkBook, WorkSheet, "Dates");
 

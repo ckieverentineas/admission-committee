@@ -16,15 +16,16 @@ const Admin: NextPage = () => {
     async function Admin() {
         document.location.href= await "/"
     }
-    const ahandleSubmit = (event: any) => {
-        event.preventDefault();
-        setSpecializationFirst(event.target.value)
+    const ahandleSubmit = () => {
+        const val = document.getElementById('filtersos')?.value
+        setSpecializationFirst(val)
+        CreateEX(val)
     }
     
-    async function CreateEX() {
+    async function CreateEX(val: any) {
         // GET request using fetch with async/await
         const response = await fetch('/api/xlsx', {
-            body: JSON.stringify({specialization_first: specialization_first}),
+            body: JSON.stringify({specialization_first: val}),
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -47,7 +48,7 @@ const Admin: NextPage = () => {
             Личный кабинет администратора
             </h1><br/>
             <label className={styles.label}>Специальность:</label> 
-                        <select name="specialization_first" onChange={ahandleSubmit}>
+                        <select name="specialization_first" id="filtersos" onChange={ahandleSubmit}>
                             <option value='Компьютерные системы и комплексы'>Компьютерные системы и комплексы</option>
                             <option value='Монтаж и эксплуатация оборудования и систем газоснабжения'>Монтаж и эксплуатация оборудования и систем газоснабжения</option>
                             <option value='Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий'>Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий</option>
@@ -65,7 +66,6 @@ const Admin: NextPage = () => {
                             <option value='Мастер контрольно-измерительных приборов и автоматики'>Мастер контрольно-измерительных приборов и автоматики</option>
                             <option value='Лаборант-эколог'>Лаборант-эколог</option>
                         </select>
-                        <button onClick={() => CreateEX()}>Сформировать список группы</button>
                             <a target="_blank" href={`./tables/${specialization_first}.xlsx`} download>
                                 <Link href={`./tables/${specialization_first}.xlsx`} target="_blank">
                                 <button>Скачать список группы</button></Link></a>
