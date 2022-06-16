@@ -26,15 +26,26 @@ export default async function handler(req: any, res: any) {
                 education_complete_type: true
             }
         }
-            
+        
         )
+        let jsonArr = [];
+        let counter = 1
 
-        const WorkSheet = xlsx.utils.json_to_sheet(data)
+        for (let i = 0; i < data.length; i++) {
+            jsonArr.push({
+                id: counter++,
+                fio: data[i].firstname + " " + data[i].name + " " + data[i].lastname,
+                aver: ((parseInt(data[i].tree)*3+parseInt(data[i].four)*4+parseInt(data[i].five)*5)/(parseInt(data[i].tree)+parseInt(data[i].four)+parseInt(data[i].five))).toFixed(2),
+                doc: data[i].education_complete_type
+            });
+        }
+        console.log(data)
+        const WorkSheet = xlsx.utils.json_to_sheet(jsonArr)
         const WorkBook = xlsx.utils.book_new()
         xlsx.utils.book_append_sheet(WorkBook, WorkSheet, "Dates");
 
         /* fix headers */
-        xlsx.utils.sheet_add_aoa(WorkSheet, [["№ п/п", "Фамилия", "Имя", "Отчество", "тройки", "четверки", "пятерки", "копия/оригинал"]], { origin: "A1" });
+        xlsx.utils.sheet_add_aoa(WorkSheet, [["№ п/п", "ФИО абитуриента", "срю балл", "копия/оригинал"]], { origin: "A1" });
 
         /* create an XLSX file and try to save to Presidents.xlsx */
         const sela = xlsx.writeFile(WorkBook, `./public/tables/${specialization_first}.xlsx`);
