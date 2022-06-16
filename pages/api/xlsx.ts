@@ -39,13 +39,12 @@ export default async function handler(req: any, res: any) {
                 doc: data[i].education_complete_type
             });
         }
-        console.log(data)
         const WorkSheet = xlsx.utils.json_to_sheet(jsonArr)
         const WorkBook = xlsx.utils.book_new()
         xlsx.utils.book_append_sheet(WorkBook, WorkSheet, "Dates");
 
         /* fix headers */
-        xlsx.utils.sheet_add_aoa(WorkSheet, [["№ п/п", "ФИО абитуриента", "срю балл", "копия/оригинал"]], { origin: "A1" });
+        xlsx.utils.sheet_add_aoa(WorkSheet, [["№ п/п", "ФИО абитуриента", "ср. балл", "копия/оригинал"]], { origin: "A1" });
 
         /* create an XLSX file and try to save to Presidents.xlsx */
         const sela = xlsx.writeFile(WorkBook, `./public/tables/${specialization_first}.xlsx`);

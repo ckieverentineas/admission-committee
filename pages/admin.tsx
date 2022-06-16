@@ -45,7 +45,7 @@ const Admin: NextPage = () => {
         <main>
             <h1 className={styles.title}>
             Личный кабинет администратора
-            </h1>
+            </h1><br/>
             <label className={styles.label}>Специальность:</label> 
                         <select name="specialization_first" onChange={ahandleSubmit}>
                             <option value='Компьютерные системы и комплексы'>Компьютерные системы и комплексы</option>
