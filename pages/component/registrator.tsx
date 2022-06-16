@@ -163,11 +163,18 @@ export default function Registrator() {
                     </fieldset>
                     <li className={styles.formrow}>
                         <label className={styles.label}>Адрес регистрации места жительства:</label> 
-                        <input type="text" name="adress_register" placeholder="ИНДЕКС, ПОЛНЫЙ АДРЕС ПОСТОЯННОЙ РЕГИСТРАЦИИ, РАЙОН" autoComplete="off" required/>
+                        <input type="text" name="adress_register" id="adr" placeholder="ИНДЕКС, ПОЛНЫЙ АДРЕС ПОСТОЯННОЙ РЕГИСТРАЦИИ, РАЙОН" autoComplete="off" required/>
                     </li>
+                    <button onClick={() => {
+                                                    const got = document.getElementById('adr')?.value
+                                                    console.log(got)
+                                                    document.getElementById('adr2')?.value = got
+                                                }
+                                                }>Нажмите, если адрес Регистрации совпадает с фактическим адресом
+                    </button>
                     <li className={styles.formrow}>
-                        <label className={styles.label}>Фактический адрес места жительства:</label> 
-                        <input type="text" name="adress_fact" placeholder="ИНДЕКС, ПОЛНЫЙ АДРЕС МЕСТОЖИТЕЛЬСТВА, РАЙОН" autoComplete="off"/>
+                        <label className={styles.label}>Фактический адрес места жительства:</label>
+                        <input type="text" name="adress_fact" id="adr2" placeholder="ИНДЕКС, ПОЛНЫЙ АДРЕС МЕСТОЖИТЕЛЬСТВА, РАЙОН" autoComplete="off"/>
                     </li>
                     <li className={styles.formrow}>
                         <label className={styles.label}>e-mail:</label> 
@@ -181,7 +188,7 @@ export default function Registrator() {
                             <option value='КИТАЙСКИЙ'>КИТАЙСКИЙ ЯЗЫК</option>
                             <option value='ЯПОНСКИЙ'>ЯПОНСКИЙ ЯЗЫК</option>
                             <option value='ДРУГОЙ'>ДРУГОЙ ЯЗЫК</option>
-                            <option value='НИКАКОЙ'>НИКАКОЙ ЯЗЫК</option>
+                            <option value='НЕ ИЗУЧАЛ(А)'>НЕ ИЗУЧАЛ(А)</option>
                         </select>
                     </li>
                     <hr/>
@@ -206,7 +213,7 @@ export default function Registrator() {
                             <option value='Мастер контрольно-измерительных приборов и автоматики'>Мастер контрольно-измерительных приборов и автоматики</option>
                             <option value='Лаборант-эколог'>Лаборант-эколог</option>
                         </select>
-                        <label className={styles.label}>Запасная специальность:</label> 
+                        <label className={styles.label}>Резервная специальность:</label> 
                         <select name="specialization_second">
                             <option value='Монтаж и эксплуатация оборудования и систем газоснабжения'>Монтаж и эксплуатация оборудования и систем газоснабжения</option>
                             <option value='Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий'>Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий</option>
