@@ -19,8 +19,8 @@ const Admin: NextPage = () => {
     const ahandleSubmit = (event: any) => {
         event.preventDefault();
         setSpecializationFirst(event.target.value)
-      }
-      
+    }
+    
     async function CreateEX() {
         // GET request using fetch with async/await
         const response = await fetch('/api/xlsx', {

@@ -6,7 +6,63 @@ export default function Abiturs() {
     const [dataman, setDataMan] = useState([])
     const [data, setData] = useState<any[]>([])
     const [show, setShow] = useState(true)
-    
+    const colums = {
+        id: 'ID:',
+        citizenship: 'Гражданство:', 
+        passport: 'Документ, удостоверяющий личность:',
+        passport_seria: 'Серия паспорта:',
+        passport_number: 'Номер паспорта:',
+        passport_place: 'Кем выдан паспорта:',
+        passport_date: 'Дата выдачи паспорта:',
+        firstname: 'Фамилия:',
+        name: 'Имя:',
+        lastname: 'Отчество:',
+        birthday: 'Дата рождения:',
+        birthday_place: 'Место Рождения:',
+        phone: 'Номер телефона:',
+        gender: 'Пол:',
+        adress_register: 'Адрес регистрации места жительства:',
+        adress_fact: 'Фактический адрес места жительства:',
+        email: 'e-mail:',
+        language: 'Изучаемый иностранный язык:',
+        specialization_first: 'Специальность:',
+        specialization_second: 'Резервная специальность:',
+        form_education: 'Форма обучения:',
+        form_education_pay: 'Место:',
+        education_complete_name: 'Образовательное учреждение:',
+        education_complete_year: 'Год окончания:',
+        education_complete_category: 'Полученное образование:',
+        education_complete_document: 'Документ, подтверждающий полученное образование:',
+        education_complete_seria: 'Серия документа об образовании:',
+        education_complete_number: 'Номер документа об образовании:',
+        education_complete_date: 'Дата выдачи документа об образовании:',
+        education_complete_type: 'Поданный документ документа об образовании:',
+        medal: 'Медаль:',
+        olympiad: 'Победы в олимпиадах:',
+        work_stage_year: 'Трудовой стаж, лет:',
+        work_stage_month: 'Трудовой стаж, месяцев:',
+        work_place_post: 'Место работы, занимаемая должность для заочников:',
+        house: 'В общежитии:',
+        snils: 'СНИЛС',
+        inn: 'ИНН',
+        education_spo: 'Среднее профессиональное образование (СПО) получаю:',
+        parent_mother_initial: 'ФИО матери:',
+        parent_mother_work: 'Работа матери:',
+        parent_mother_work_post: 'Должность матери:',
+        parent_mother_phone: 'Телефон матери:',
+        parent_father_initial: 'ФИО отца:',
+        parent_father_work: 'Работа отца:',
+        parent_father_work_post: 'Должность отца:',
+        parent_father_phone: 'Телефон отца:',
+        hobby: 'Интересы, увлечения, хобби:',
+        army: 'Приписка к следующему военкомату:',
+        sport: 'Вид спорта:',
+        sport_level: 'Спортивный разряд:',
+        success: 'Согласие на обработку персональных данных:',
+        tree: 'Количество троек:',
+        four: 'Количество четверок:',
+        five: 'Количество пятерок:'
+    }
     async function componentDidMount() {
         // GET request using fetch with async/await
         const response = await fetch('/api/abbitur');
@@ -69,6 +125,105 @@ export default function Abiturs() {
         console.log(datas)
         setDataMan(datas)
     }
+    function handleSubmit(e: any) {
+        e.preventDefault()
+        const { id,
+            citizenship, passport, passport_seria,
+            passport_number, passport_place, passport_date,
+            firstname, name, lastname,
+            birthday, birthday_place, phone,
+            gender, adress_register, adress_fact,
+            email, language, specialization_first,
+            specialization_second, form_education, form_education_pay,
+            education_complete_name, education_complete_year, education_complete_category,
+            education_complete_document, education_complete_seria, education_complete_number,
+            education_complete_date, education_complete_type, medal,
+            olympiad, work_stage_year, work_stage_month,
+            work_place_post, house, snils,
+            inn, education_spo, parent_mother_initial,
+            parent_mother_work, parent_mother_work_post, parent_mother_phone,
+            parent_father_initial, parent_father_work, parent_father_work_post,
+            parent_father_phone, hobby, army,
+            sport, sport_level, success, tree, four, five
+            
+        } = e.target.elements
+        const data = {
+            id: parseInt(id.value),
+            citizenship: citizenship.value, 
+            passport: passport.value,
+            passport_seria: passport_seria.value,
+            passport_number: passport_number.value,
+            passport_place: passport_place.value,
+            passport_date: passport_date.value,
+            firstname: firstname.value,
+            name: name.value,
+            lastname: lastname.value,
+            birthday: birthday.value,
+            birthday_place: birthday_place.value,
+            phone: phone.value,
+            gender: gender.value,
+            adress_register: adress_register.value,
+            adress_fact: adress_fact.value,
+            email: email.value,
+            language: language.value,
+            specialization_first: specialization_first.value,
+            specialization_second: specialization_second.value,
+            form_education: form_education.value,
+            form_education_pay: form_education_pay.value,
+            education_complete_name: education_complete_name.value,
+            education_complete_year: education_complete_year.value,
+            education_complete_category: education_complete_category.value,
+            education_complete_document: education_complete_document.value,
+            education_complete_seria: education_complete_seria.value,
+            education_complete_number: education_complete_number.value,
+            education_complete_date: education_complete_date.value,
+            education_complete_type: education_complete_type.value,
+            medal: medal.value,
+            olympiad: olympiad.value,
+            work_stage_year: work_stage_year.value,
+            work_stage_month: work_stage_month.value,
+            work_place_post: work_place_post.value,
+            house: house.value,
+            snils: snils.value,
+            inn: inn.value,
+            education_spo: education_spo.value,
+            parent_mother_initial: parent_mother_initial.value,
+            parent_mother_work: parent_mother_work.value,
+            parent_mother_work_post: parent_mother_work_post.value,
+            parent_mother_phone: parent_mother_phone.value,
+            parent_father_initial: parent_father_initial.value,
+            parent_father_work: parent_father_work.value,
+            parent_father_work_post: parent_father_work_post.value,
+            parent_father_phone: parent_father_phone.value,
+            hobby: hobby.value,
+            army: army.value,
+            sport: sport.value,
+            sport_level: sport_level.value,
+            success: success.value,
+            tree: tree.value,
+            four: four.value,
+            five: five.value
+        }
+        //console.log(data)
+        Register_User(data);
+    }
+    async function Register_User(data: any) {
+        const res = await fetch('/api/abitured', {
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        })
+        const result = await res.json()
+        console.log(result)
+        if (result) {
+            alert("Успешно отредактировано заявка")
+            document.location.href= await "/"
+        } else {
+            alert("Неуспешно отредактировано" + result)
+        }
+    }
     function ListAbiturs() {
         if (show) {
             return (
@@ -121,87 +276,27 @@ export default function Abiturs() {
         } else {
             return (
                 <div>
-                    <h2 className={styles.title}>Заявление аббитуриента {data.firstname} {data.name} {data.lastname}:</h2>
+                    <h2 className={styles.title}>Заявление аббитуриента:</h2>
+                    <button onClick={Back}>Назад</button>
+                    <ul className={styles.wrapper}>
+                        <form onSubmit={handleSubmit}>
+                        {Object.keys(data).map((innerAttr: any, index) => {
+                            return (
+                                <div className={styles.card}>
+                                <li className={styles.formrow}>
+                                    <label>{colums[`${innerAttr}`]}</label>
+                                    <input name={innerAttr} type="text" defaultValue={data[innerAttr]}/>
+                                </li>
+                                </div>
+                            )})
+                        }
+                        <li className={styles.formrow}>
+                            <button type="submit">Отправить</button>
+                        </li>
+                        </form>
+                    </ul>
                     <div className={styles.grid}>
-                        <div className={styles.card}>
-                            <h2>Паспорт:</h2>
-                            <label>Гражданство:</label><input value={data.citizenship}></input>
-                            <br/><label>Документ, удостоверяющий личность:</label><input value={data.passport}></input>
-                            <br/><label>Серия:</label><input value={data.passport_seria}></input>
-                            <br/><label>Номер:</label><input value={data.passport_number}></input>
-                            <br/><label>Кем выдан:</label><input value={data.passport_place}></input>
-                            <br/><label>Дата выдачи:</label><input value={data.passport_date}></input>
-                            <br/><label>Фамилия:</label><input value={data.firstname}></input>
-                            <br/><label>Имя:</label><input value={data.name}></input>
-                            <br/><label>Отчество:</label><input value={data.lastname}></input>
-                            <br/><label>Дата рождения:</label><input value={data.birthday}></input>
-                            <br/><label>Место Рождения:</label><input value={data.birthday_place}></input>
-                            <br/><label>Пол:</label><input value={data.gender}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Образование:</h2>
-                            <label>Образовательное учреждение:</label><input value={data.education_complete_name}></input>
-                            <br/><label>Год окончания:</label><input value={data.education_complete_year}></input>
-                            <br/><label>Полученное образование:</label><input value={data.education_complete_category}></input>
-                            <br/><label>Документ, подтверждающий полученное образование:</label><input value={data.education_complete_document}></input>
-                            <br/><label>Серия:</label><input value={data.education_complete_seria}></input>
-                            <br/><label>Номер:</label><input value={data.education_complete_number}></input>
-                            <br/><label>Дата выдачи:</label><input value={data.education_complete_date}></input>
-                            <br/><label>Поданный документ:</label><input value={data.education_complete_type}></input>
-                            <br/><label>Медаль:</label><input value={data.medal}></input>
-                            <br/><label>Победы в олимпиадах:</label><input value={data.olympiad}></input>
-                            <br/><label>Количество троек:</label><input value={data.tree}></input>
-                            <br/><label>Количество четверок:</label><input value={data.four}></input>
-                            <br/><label>Количество пятерок:</label><input value={data.five}></input>
-                            <br/><label>Средняя оценка аттестата:</label><input value={((parseInt(data.tree)*3+parseInt(data.four)*4+parseInt(data.five)*5)/(parseInt(data.tree)+parseInt(data.four)+parseInt(data.five))).toFixed(2)}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Контакты:</h2>
-                            <label>Номер телефона:</label><input value={data.phone}></input>
-                            <br/><label>Адрес регистрации места жительства:</label><input value={data.adress_register}></input>
-                            <br/><label>Фактический адрес места жительства:</label><input value={data.adress_fact}></input>
-                            <br/><label>e-mail:</label><input value={data.email}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Работа:</h2>
-                            <label>Трудовой стаж, лет:</label><input value={data.work_stage_year}></input>
-                            <br/><label>месяцев:</label><input value={data.work_stage_month}></input>
-                            <br/><label>Место работы, занимаемая должность для заочников:</label><input value={data.work_place_post}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Мать:</h2>
-                            <label>ФИО:</label><input value={data.parent_mother_initial}></input>
-                            <br/><label>Место работы:</label><input value={data.parent_mother_work}></input>
-                            <br/><label>Должность:</label><input value={data.parent_mother_work_post}></input>
-                            <br/><label>Номер телефона:</label><input value={data.parent_mother_phone}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Отец:</h2>
-                            <label>ФИО:</label><input value={data.parent_father_initial}></input>
-                            <br/><label>Место работы:</label><input value={data.parent_father_work}></input>
-                            <br/><label>Должность:</label><input value={data.parent_father_work_post}></input>
-                            <br/><label>Номер телефона:</label><input value={data.parent_father_phone}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Выбор специальности:</h2>
-                            <label>Специальность:</label><input value={data.specialization_first}></input>
-                            <br/><label>Запасная специальность:</label><input value={data.specialization_second}></input>
-                            <br/><label>Форма обучения:</label><input value={data.form_education}></input>
-                            <br/><label>Место:</label><input value={data.form_education_pay}></input>
-                            <br/><label>В общежитии:</label><input value={data.house}></input>
-                        </div>
-                        <div className={styles.card}>
-                            <h2>Другое:</h2>
-                            <label>Изучаемый иностранный язык:</label><input value={data.language}></input>
-                            <br/><label>СНИЛС:</label><input value={data.snils}></input>
-                            <br/><label>ИНН:</label><input value={data.inn}></input>
-                            <br/><label>Среднее профессиональное образование (СПО) получаю:</label><input value={data.education_spo}></input>
-                            <br/><label>Интересы, увлечения, хобби:</label><input value={data.hobby}></input>
-                            <br/><label>Приписка к следующему военкомату:</label><input value={data.army}></input>
-                            <br/><label>Вид спорта:</label><input value={data.sport}></input>
-                            <br/><label>Спортивный разряд:</label><input value={data.sport_level}></input>
-                            <br/><label>Согласие на обработку персональных данных:</label><input value={data.success}></input>
-                        </div>
+                    
                         <button onClick={Back}>Назад</button>
                     </div>
                 </div>
