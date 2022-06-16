@@ -56,11 +56,43 @@ export default function Abiturs() {
         console.log("worked"+id)
         await componentDidMount()
     }
+    const ahandleSubmit = async () => {
+        const val = document.getElementById('filters')?.value
+        const response = await fetch('/api/filter', {
+            body: JSON.stringify({specialization_first: val}),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        })
+        const datas = await response.json();
+        console.log(datas)
+        setDataMan(datas)
+    }
     function ListAbiturs() {
         if (show) {
             return (
                 <div>
                     <h2 className={styles.title}>Поданные заявления аббитуриентов:</h2>
+                    <label className={styles.label}>Специальность:</label> 
+                        <select name="specialization_first" id="filters" onChange={ahandleSubmit}>
+                            <option value='Компьютерные системы и комплексы'>Компьютерные системы и комплексы</option>
+                            <option value='Монтаж и эксплуатация оборудования и систем газоснабжения'>Монтаж и эксплуатация оборудования и систем газоснабжения</option>
+                            <option value='Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий'>Монтаж, наладка и эксплуатация электрооборудования промышленных и гражданских зданий</option>
+                            <option value='Информационные системы и программирование'>Информационные системы и программирование</option>
+                            <option value='Почтовая связь'>Почтовая связь</option>
+                            <option value='Теплоснабжение и теплотехническое оборудование'>Теплоснабжение и теплотехническое оборудование</option>
+                            <option value='Технология аналитического контроля химических соединений'>Технология аналитического контроля химических соединений</option>
+                            <option value='Право и организация социального обеспечения'>Право и организация социального обеспечения</option>
+                            <option value='Экономика и бухгалтерский учет (по отраслям)'>Экономика и бухгалтерский учет (по отраслям)</option>
+                            <option value='Электромонтажник электрических сетей и электрооборудования'>Электромонтажник электрических сетей и электрооборудования</option>
+                            <option value='Электромонтер по техническому обслуживанию электростанций и сетей'>Электромонтер по техническому обслуживанию электростанций и сетей</option>
+                            <option value='Электромонтер по ремонту и обслуживанию электрооборудования (по отраслям)'>Электромонтер по ремонту и обслуживанию электрооборудования (по отраслям)</option>
+                            <option value='Оператор нефтепереработки'>Оператор нефтепереработки</option>
+                            <option value='Продавец, контролёр-кассир'>Продавец, контролёр-кассир</option>
+                            <option value='Мастер контрольно-измерительных приборов и автоматики'>Мастер контрольно-измерительных приборов и автоматики</option>
+                            <option value='Лаборант-эколог'>Лаборант-эколог</option>
+                        </select>
                     <div className={styles.grid}>
                     {dataman.slice().reverse().map((key) => (
                         <div className={styles.card}>
